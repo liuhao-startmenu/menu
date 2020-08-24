@@ -25,6 +25,8 @@
 #include <QDebug>
 #include <QApplication>
 
+#include <QPainter>
+
 CommonUseWidget::CommonUseWidget(QWidget *parent) :
     QWidget(parent)
 {
@@ -41,6 +43,7 @@ void CommonUseWidget::initUi()
 {
     this->setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint);
     this->setAttribute(Qt::WA_StyledBackground,true);
+    setAttribute(Qt::WA_TranslucentBackground);
     this->setAutoFillBackground(true);
 
 
@@ -83,6 +86,13 @@ void CommonUseWidget::fillAppList()
     Q_FOREACH(QString desktopfp,UkuiMenuInterface::allAppVector)
         m_data.append(QStringList()<<desktopfp<<"1");
     m_listView->addData(m_data);
+}
+
+void CommonUseWidget::paintEvent(QPaintEvent *e)
+{
+    QPainter p(this);
+    qreal opacity 
+    p.fillRect(this->rect(), Qt::blue);
 }
 
 /**

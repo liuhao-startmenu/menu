@@ -82,6 +82,8 @@ protected:
      */
     void fillAppList();
 
+    void paintEvent(QPaintEvent *e);
+
 public Q_SLOTS:
     /**
      * @brief Open the application

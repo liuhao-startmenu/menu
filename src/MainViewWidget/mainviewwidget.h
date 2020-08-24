@@ -83,6 +83,8 @@ public:
      */
     void resizeControl();
 
+    void paintEvent(QPaintEvent *e);
+
 private:
     UkuiMenuInterface *m_ukuiMenuInterface=nullptr;
     QWidget *m_topWidget=nullptr;

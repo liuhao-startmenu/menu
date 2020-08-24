@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
     w.activateWindow();
 //    w.hide();
 
-    auto style=new InternalStyle;
+    auto style=new ProxyStyle;
     app.setStyle(style);
 
     return app.exec();

@@ -22,6 +22,9 @@
 ListView::ListView(QWidget *parent, int width, int height, int module):
     QListView(parent)
 {
+    setAttribute(Qt::WA_TranslucentBackground);
+    viewport()->setAttribute(Qt::WA_TranslucentBackground);
+
     this->w=width;
     this->h=height;
     this->module=module;

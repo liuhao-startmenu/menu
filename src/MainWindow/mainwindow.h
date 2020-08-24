@@ -74,7 +74,7 @@ protected:
      * @brief Handle events clicking on the outside of the window
      */
     bool event(QEvent *event);
-//    void paintEvent(QPaintEvent*);
+    void paintEvent(QPaintEvent*);
     /**
      * @brief The query box responds to keyboard events
      */

@@ -2,7 +2,7 @@
 #include <QApplication>
 #include <QDebug>
 
-InternalStyle::InternalStyle()
+ProxyStyle::ProxyStyle()
 {
 //    double transparency;
     if(QGSettings::isSchemaInstalled(QString("org.ukui.control-center.personalise").toLocal8Bit()))
@@ -24,7 +24,7 @@ InternalStyle::InternalStyle()
     }
 }
 
-QPalette InternalStyle::standardPalette() const
+QPalette ProxyStyle::standardPalette() const
 {
     auto m_palette=QProxyStyle::standardPalette();
     QColor m_windowbg,m_highlightbg,m_textbg,m_base;
@@ -33,7 +33,7 @@ QPalette InternalStyle::standardPalette() const
         QGSettings* gsetting=new QGSettings(QString("org.ukui.style").toLocal8Bit());
         if(gsetting->keys().contains(QString("styleName")))
         {
-            if(gsetting->get("style-name").toString()=="ukui-default")
+            if(gsetting->get("style-name").toString()=="ukui-light")
             {
                 m_windowbg=QColor(222, 222, 222);
                 m_highlightbg=QColor(0, 0, 0);
@@ -128,7 +128,7 @@ QPalette InternalStyle::standardPalette() const
 //    QProxyStyle::drawPrimitive(element, option, painter, widget);
 //}
 
-void InternalStyle::drawControl(QStyle::ControlElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
+void ProxyStyle::drawControl(QStyle::ControlElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
 {
     double transparency;
     if(QGSettings::isSchemaInstalled(QString("org.ukui.control-center.personalise").toLocal8Bit()))
@@ -181,7 +181,7 @@ void InternalStyle::drawControl(QStyle::ControlElement element, const QStyleOpti
     return QProxyStyle::drawControl(element, option, painter, widget);
 }
 
-void InternalStyle::polish(QPalette &pal)
+void ProxyStyle::polish(QPalette &pal)
 {
     pal=standardPalette();
 //    QProxyStyle::polish(pal);

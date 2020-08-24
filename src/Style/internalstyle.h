@@ -7,11 +7,11 @@
 #include <QPalette>
 #include <QStyleOption>
 
-class InternalStyle : public QProxyStyle
+class ProxyStyle : public QProxyStyle
 {
     Q_OBJECT
 public:
-    InternalStyle();
+    ProxyStyle();
 
 //    void drawPrimitive(QStyle::PrimitiveElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget = nullptr) const;
     void drawControl(QStyle::ControlElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget = nullptr) const;

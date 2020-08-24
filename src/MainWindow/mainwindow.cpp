@@ -377,6 +377,13 @@ bool MainWindow::event ( QEvent * event )
    return QWidget::event(event);
 }
 
+void MainWindow::paintEvent(QPaintEvent *)
+{
+    QPainter p(this);
+    p.fillRect(this->rect(), Qt::red);
+    return;
+}
+
 void MainWindow::XkbEventsPress(const QString &keycode)
 {
     QString KeyName;

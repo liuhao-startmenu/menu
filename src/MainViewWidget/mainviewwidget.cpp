@@ -24,6 +24,8 @@
 #include <syslog.h>
 #include <QDebug>
 
+#include <QPainter>
+
 MainViewWidget::MainViewWidget(QWidget *parent) :
     QWidget(parent)
 {
@@ -495,6 +497,13 @@ void MainViewWidget::resizeControl()
 //        }
     }
 
+}
+
+void MainViewWidget::paintEvent(QPaintEvent *e)
+{
+    QPainter p(this);
+    p.fillRect(this->rect(), Qt::green);
+    return;
 }
 
 /**
